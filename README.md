@@ -1,1 +1,1 @@
-# GLQcse-341-project1
+# W03 Project: Project 2 Part 1 (CRUD Operations)
