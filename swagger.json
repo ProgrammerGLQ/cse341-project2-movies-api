@@ -5,11 +5,10 @@
     "description": "Users Api",
     "version": "1.0.0"
   },
-  "host": "guillermo-movies-api.onrender.com/",
-  "basePath": "/",
+  "host": "localhost:3001",
+  "basePath": "guillermo-movies-api.onrender.com",
   "schemes": [
-    "https",
-    "http"
+    "https"
   ],
   "paths": {
     "/": {
