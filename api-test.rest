@@ -1,0 +1,10 @@
+// Get all contacts
+
+GET https://project1-lxmu.onrender.com/contacts
+
+###
+// Get contact by id 
+
+GET https://project1-lxmu.onrender.com/contacts/68b9d2ed4cbeca54918b06e6
+
+

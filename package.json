@@ -1,0 +1,35 @@
+{
+  "name": "glqcse-341-project1",
+  "version": "1.0.0",
+  "description": "My First Project",
+  "homepage": "https://github.com/ProgrammerGLQ/GLQcse-341-project1#readme",
+  "bugs": {
+    "url": "https://github.com/ProgrammerGLQ/GLQcse-341-project1/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProgrammerGLQ/GLQcse-341-project1.git"
+  },
+  "license": "ISC",
+  "author": "Guillermo Quinteros",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "swagger": "node swagger.js"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "express-validator": "^7.2.1",
+    "mongodb": "^6.19.0",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1",
+    "validatorjs": "^3.22.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.1"
+  }
+}

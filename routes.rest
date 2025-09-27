@@ -1,0 +1,68 @@
+### Get all movies
+GET http://localhost:3001/movies
+
+### Get a single contact by id
+GET http://localhost:3001/movies/68b9d2ed4cbeca54918b06e6
+
+### Create a new contact
+POST http://localhost:3001/movies HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "test",
+    "lastName": "test",
+    "email": "test@example.com",
+    "favoriteColor": "Red",
+    "birthday": "1990-01-01"
+}
+
+### Update an existing contact
+PUT http://localhost:3001/movies/68d442813c484b47d597bbcb HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "test",
+    "lastName": "test",
+    "email": "test@example.com",
+    "favoriteColor": "Blue",
+    "birthday": "1991-01-01"
+}
+
+### Delete a contact
+DELETE http://localhost:3001/movies/68d442393c484b47d597bbca HTTP/1.1
+
+
+
+
+
+
+
+
+
+
+# [
+#   {
+#     "_id": "68b9d2ed4cbeca54918b06e6",
+#     "firstName": "Martin",
+#     "lastName": "Quinteros",
+#     "email": "martin.quinteros@gmail.com",
+#     "favoriteColor": "blue",
+#     "dateOfBirth": "1990-10-15"
+#   },
+#   {
+#     "_id": "68b9d5584cbeca54918b06e8",
+#     "firstName": "Emilce",
+#     "lastName": "Quinteros",
+#     "email": "emilce.quinteros@gmail.com",
+#     "favoriteColor": "pink",
+#     "dateOfBirth": "1992-07-22"
+#   },
+#   {
+#     "_id": "68b9d56e4cbeca54918b06e9",
+#     "firstName": "Leonel",
+#     "lastName": "Quinteros",
+#     "email": "leonel.quinteros@gmail.com",
+#     "favoriteColor": "black",
+#     "dateOfBirth": "2005-01-01"
+#   }
+# ]
