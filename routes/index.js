@@ -7,10 +7,10 @@ router.get('/', (req, res) => {
      res.send('Hello World');
 });
 
-// Rutas para la colección de Películas
+// movies
 router.use('/movies', require('./movies'));
 
-// 🟢 NUEVA LÍNEA: Conecta todas las rutas de la colección de Directores
+//  directors
 router.use('/directors', require('./directors'));
 
 module.exports = router;

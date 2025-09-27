@@ -11,7 +11,7 @@ const getAll = async (req, res) => {
     })
     .catch((err) => {
         console.error(err);
-        // 🟢 Error Handling 500
+        // Error Handling 500
         res.status(500).json({ message: 'Error retrieving directors.' });
     });
 };
@@ -19,7 +19,7 @@ const getAll = async (req, res) => {
 const getSingle = async (req, res) => {
     // #swagger.tags=['Directors']
     if (!ObjectId.isValid(req.params.id)) {
-        // 🟢 Error Handling 400
+        // Error Handling 400
         res.status(400).json('Must use a valid Director ID to find a director.');
         return; 
     }
@@ -28,7 +28,7 @@ const getSingle = async (req, res) => {
     
     result.find({ _id: directorId }).toArray().then((directors) => {
         if (directors.length === 0) {
-            // 🟢 Error Handling 404
+            // Error Handling 404
             res.status(404).json({ message: 'Director not found.' });
             return;
         }
@@ -37,14 +37,13 @@ const getSingle = async (req, res) => {
     })
     .catch((err) => {
         console.error(err);
-        // 🟢 Error Handling 500
+        // Error Handling 500
         res.status(500).json({ message: 'Error retrieving director.' });
     });
 };
 
 const createdirector = async (req, res) => {
     // #swagger.tags=['Directors']
-    // 🟢 CORREGIDO: Adaptado a las propiedades de Director
     const director = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -52,7 +51,7 @@ const createdirector = async (req, res) => {
         nationality: req.body.nationality
     };
     
-    // 🟢 Agregado try/catch para Error Handling 500
+    // try/catch
     try {
         const response = await mongodb.getDatabase().db('project2').collection('directors').insertOne(director);
         if (response.acknowledged) {
@@ -69,12 +68,12 @@ const createdirector = async (req, res) => {
 const updatedirector = async (req, res) => {
     // #swagger.tags=['Directors']
     if (!ObjectId.isValid(req.params.id)) {
-        // 🟢 Error Handling 400
+        // Error Handling 400
         res.status(400).json('Must use a valid Director ID to update a director.');
         return;
     }
     const directorId = new ObjectId(req.params.id);
-    // 🟢 CORREGIDO: Adaptado a las propiedades de Director
+
     const director = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -82,7 +81,7 @@ const updatedirector = async (req, res) => {
         nationality: req.body.nationality
     };
     
-    // 🟢 Agregado try/catch para Error Handling 500
+    // try/catch  Error Handling 500
     try {
         const response = await mongodb.getDatabase().db('project2').collection('directors').replaceOne({ _id: directorId }, director);
         if (response.modifiedCount > 0) {
@@ -99,13 +98,13 @@ const updatedirector = async (req, res) => {
 const deletedirector = async (req, res) => {
     // #swagger.tags=['Directors']
     if (!ObjectId.isValid(req.params.id)) {
-        // 🟢 Error Handling 400
+        // Error Handling 400
         res.status(400).json('Must use a valid Director ID to delete a director.');
         return;
     }
     const directorId = new ObjectId(req.params.id);
 
-    // 🟢 Agregado try/catch para Error Handling 500
+    // try/catch Error Handling 500
     try {
         const response = await mongodb.getDatabase().db('project2').collection('directors').deleteOne({ _id: directorId });
         if (response.deletedCount > 0) {

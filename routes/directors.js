@@ -3,10 +3,8 @@
 const express = require('express');
 const router = express.Router();
 
-// Importa el controller de directores
-const directorController = require('../controllers/directors'); 
 
-// Importa el middleware de validación (que ahora tiene savemovie y savedirector)
+const directorController = require('../controllers/directors'); 
 const validation = require('../middleware/validate'); 
 
 
@@ -16,12 +14,10 @@ router.get('/', directorController.getAll);
 // 2. GET Single
 router.get('/:id', directorController.getSingle);
 
-// 3. POST (APLICANDO VALIDACIÓN)
-// Llama al middleware validation.savedirector ANTES de crear el director
+// 3. POST ( VALIDATION)
 router.post('/', validation.savedirector, directorController.createdirector); 
 
-// 4. PUT (APLICANDO VALIDACIÓN)
-// Llama al middleware validation.savedirector ANTES de actualizar el director
+// 4. PUT ( VALIDATION)
 router.put('/:id', validation.savedirector, directorController.updatedirector);
 
 // 5. DELETE
