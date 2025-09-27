@@ -2,7 +2,7 @@ const validator = require('../helpers/validate');
 
 
 // =================================================================
-// 1. MOVIES 
+// 1. VALIDATION MOVIES 
 // =================================================================
 const savemovie = (req, res, next) => {
     
@@ -21,7 +21,7 @@ const savemovie = (req, res, next) => {
 
     validator(req.body, validationRule, {}, (err, status) => {
         if (!status) {
-            // Error 412: 
+            // Error 412
             res.status(412).send({
                 success: false,
                 message: 'Movie Validation failed',
@@ -35,21 +35,21 @@ const savemovie = (req, res, next) => {
 
 
 // =================================================================
-// 2.  DIRECTORS
+// 2. VALIDATION DIRECTORS 
 // =================================================================
 const savedirector = (req, res, next) => {
     
-
+  
     const validationRule = {
         firstName: 'required|string',
         lastName: 'required|string',
-        birthYear: 'required|integer',
+        birthYear: 'required|integer', 
         nationality: 'required|string'
     };
 
     validator(req.body, validationRule, {}, (err, status) => {
         if (!status) {
-            // Error 412: 
+            // Error 412: Precondition Failed
             res.status(412).send({
                 success: false,
                 message: 'Director Validation failed',
@@ -63,9 +63,9 @@ const savedirector = (req, res, next) => {
 
 
 // =================================================================
-//  Export Functions
+// 3. EXPORT
 // =================================================================
 module.exports = {
     savemovie,
-    savedirector 
+    savedirector
 };
